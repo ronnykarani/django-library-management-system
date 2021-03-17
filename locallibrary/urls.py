@@ -21,6 +21,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('catalog/', include('catalog.urls')),
+    path('catalog/', include('catalog.urls')), 
+    # ensures that whenever a URL that starts with catalog/  is received, the URLConf module catalog.urls will process the remaining substring.
     path('', RedirectView.as_view(url='catalog/', permanent=True)),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
