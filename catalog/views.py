@@ -28,3 +28,20 @@ def index(request):
 # generic view will query the database to get all records for the specified model (Book) 
 class BookListView(generic.ListView):
     model = Book
+    paginate_by = 5
+
+
+# generic view will query the database to get all details for the specific Book
+class BookDetailView(generic.DetailView):
+    model = Book
+
+
+class AuthorListView(generic.ListView):
+    """Generic class-based list view for a list of authors."""
+    model = Author
+    paginate_by = 5
+
+
+class AuthorDetailView(generic.DetailView):
+    """Generic class-based detail view for an author."""
+    model = Author
