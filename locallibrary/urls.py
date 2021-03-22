@@ -24,4 +24,6 @@ urlpatterns = [
     path('catalog/', include('catalog.urls')), 
     # ensures that whenever a URL that starts with catalog/  is received, the URLConf module catalog.urls will process the remaining substring.
     path('', RedirectView.as_view(url='catalog/', permanent=True)),
+    #Add Django site authentication urls (for login, logout, password management)
+    path('accounts/', include('django.contrib.auth.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
